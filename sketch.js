@@ -52,5 +52,6 @@ function computeNextGeneration() {
 }
 
 function applyRule(a, b, c) {
-  return 0;
+  let index = a * Math.pow(2, 2) + b * Math.pow(2, 1) + c * Math.pow(2, 0);
+  return rule[index];
 }
