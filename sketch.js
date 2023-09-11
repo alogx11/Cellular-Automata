@@ -19,10 +19,12 @@ function setup() {
 
 function displayCells() {
   for (let i = 0; i < cells.length; i++) {
+    // alive cell, fill black
     if (cells[i] == 0) {
       fill(255);
       rect(0 + ROWWIDTH * i, generations * CELLSIZE, CELLSIZE);
     } else {
+      // dead cell, white
       fill(0);
       rect(0 + ROWWIDTH * i, generations * CELLSIZE, CELLSIZE);
     }
@@ -49,4 +51,6 @@ function computeNextGeneration() {
   cells = nextGenCells;
 }
 
-function applyRule(a, b, c) {}
+function applyRule(a, b, c) {
+  return 0;
+}
