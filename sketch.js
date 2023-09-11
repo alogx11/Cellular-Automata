@@ -8,25 +8,32 @@ let cells;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(255);
-  rule = [0, 0, 0, 1, 1, 1, 1, 0, 0];
+  background(0);
+  rule = [0, 0, 0, 1, 1, 1, 1, 0];
   generations = 0;
   cells = new Array(ROWWIDTH);
-  noStroke();
-  displayCells();
-  computeNextGeneration();
+  rule = [0, 0, 0, 1, 1, 1, 1, 0];
+  // noStroke();
+  rect(0 + CELLSIZE * i, 0 * CELLSIZE, CELLSIZE);
+  while (generations < MAXGENERATIONS) {
+    print("18");
+    displayCells();
+    // computeNextGeneration();
+  }
 }
 
 function displayCells() {
   for (let i = 0; i < cells.length; i++) {
     // alive cell, fill black
     if (cells[i] == 0) {
-      fill(255);
-      rect(0 + ROWWIDTH * i, generations * CELLSIZE, CELLSIZE);
+      print("alive");
+      fill(0);
+      rect(0 + CELLSIZE * i, generations * CELLSIZE, CELLSIZE);
     } else {
       // dead cell, white
-      fill(0);
-      rect(0 + ROWWIDTH * i, generations * CELLSIZE, CELLSIZE);
+      print("ded");
+      fill(255);
+      rect(0 + CELLSIZE * i, generations * CELLSIZE, CELLSIZE);
     }
   }
 }
@@ -49,6 +56,7 @@ function computeNextGeneration() {
     }
   }
   cells = nextGenCells;
+  generations++;
 }
 
 function applyRule(a, b, c) {
