@@ -1,11 +1,14 @@
-﻿const cellSize = 80;
+﻿const CELLSIZE = 80;
+const ROWWIDTH = 600;
 let cells = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const MAXGENERATIONS = 3;
+let rule = new Array(8);
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
-
+  rule = [0, 0, 0, 1, 1, 1, 1, 0, 0];
+  noStroke();
   displayCells();
 }
 
@@ -13,6 +16,7 @@ function displayCells() {
   for (let i = 0; i < cells.length; i++) {
     if (cells[i] == 0) {
       fill(255);
+      rect(x, y, CELLSIZE);
     } else {
       fill(0);
     }
@@ -36,6 +40,7 @@ function computeNextGeneration() {
       nextGenCells[i] = applyRule(cells[i - 1], cells[i], cells[i + 1]);
     }
   }
+  cells = nextGenCells;
 }
 
 function applyRule(a, b, c) {}
