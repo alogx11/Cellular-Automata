@@ -3,7 +3,7 @@ let rowWidth = 100;
 let MAXGENERATIONS = 120;
 
 let rule30 = [0, 0, 0, 1, 1, 1, 1, 0];
-let rule31 = [1, 0, 1, 0, 0, 1, 1, 1,]
+let rule135 = [1, 0, 1, 0, 0, 1, 1, 1];
 let generations;
 let cellsOne;
 let cellsTwo;
@@ -13,7 +13,6 @@ function setup() {
   background(255);
   rowWidth = Math.floor(windowWidth / CELLSIZE);
   print(rowWidth);
-  rule30 = [0, 0, 0, 1, 1, 1, 1, 0];
   generations = 0;
   cellsOne = new Array(rowWidth);
   cellsOne.fill(0);
@@ -28,7 +27,7 @@ function setup() {
     displayCells(color(0, 0, 255), color(255, 150, 100), cellsOne);
     cellsOne = computeNextGeneration(cellsOne, rule30);
     displayCells(color(255, 0 ,0, 128), color(0, 255, 0 ,128), cellsTwo);
-    cellsTwo = computeNextGeneration(cellsTwo, rule31);
+    cellsTwo = computeNextGeneration(cellsTwo, rule135);
     generations++;
   }
   
